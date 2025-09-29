@@ -8,7 +8,7 @@ ShenNong-TCM-LLM (“神农”大模型，首个中医药大模型) 更新版
 
 <p align="center">
     <br>
-    <img src="https://github.com/ywjawmw/ShenNong-TCM-LLM/tree/main/pics/ShenNong-TCM_banner.png" width="355"/>
+    <img src="ShenNong-TCM_banner.png" width="355"/>
     <br>
 </p>
 <p align="center">
