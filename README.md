@@ -8,7 +8,7 @@ ShenNong-TCM-LLM (“神农”大模型，首个中医药大模型) 更新版
 
 <p align="center">
     <br>
-    <img src="./pics/ShenNong-TCM_banner.png" width="355"/>
+    <img src="https://github.com/ywjawmw/ShenNong-TCM-LLM/tree/main/pics/ShenNong-TCM_banner.png" width="355"/>
     <br>
 </p>
 <p align="center">
@@ -56,14 +56,22 @@ ShenNong-TCM-LLM (“神农”大模型，首个中医药大模型) 更新版
 
 [中医药指令数据集SN-QA](https://huggingface.co/datasets/michaelwzhu/ShenNong_TCM_Dataset)是完全开源的，可供社区成员们使用。
 
-我们知道，垂直领域相较于通用领域的不同之处在于其一般是知识密集性的，而这些知识一般是围绕一些实体的。所以，我们提出实体为中心的自指令方法[entity-centric self-instruct](./src/entity_centric_self_instruct.py)，即围绕垂直领域中的核心实体，以及各种不同的意图场景，进行指令的生成。
-如果小伙伴们想要基于自己本地的知识库/知识图谱，进行entity-centric self-instruct，则可以运行下面的命令（注意需要在代码文件中配置自己的api key）：
+我们知道，垂直领域相较于通用领域的不同之处在于其一般是知识密集性的，而这些知识一般是围绕一些实体的。所以，我们提出实体为中心的自指令方法[entity-centric self-instruct](https://github.com/ywjawmw/ShenNong-LLM/blob/main/query_crawl_tcm_prompt_symptom_combo.py)，即围绕垂直领域中的核心实体，以及各种不同的意图场景，进行指令的生成。
+如果想要基于《中医方剂大辞典》的症状集合进行生成，[data](https://github.com/ywjawmw/ShenNong-LLM/blob/main/all_TCM_name.txt)
 ```bash
-python src/entity_centric_self_instruct.py your_KG_triples.txt your_output_file.jsonl
+python crawl_tcm_prompt_symptom_combo.py   # 高级进阶版，加入了更多的command
+python query_crawl_tcm_prompt_symptom_combo.py  # paper version
+
+```
+小伙伴们可以自行选择，在此基础上还可以自行优化和构建~~~
+
+如果想要基于自己本地的知识库/知识图谱，进行entity-centric self-instruct，则可以运行下面的命令（注意需要在代码文件中配置自己的api key）：
+```bash
+python query_crawl_tcm_KG_prompts.py
 
 ```
 
-其中"your_KG_triples.txt"文件是知识图谱每个三元组写在txt文件形成的，参考[TCM-KG](https://github.com/ywjawmw/TCM_KG)或者[TCM-KG文件](./src/TCM-KG_triples.txt).
+其中"baseline_all_kg_triples.txt"文件是知识图谱每个三元组写在txt文件形成的，参考[TCM-KG](https://github.com/ywjawmw/TCM_KG).
 
 
 ## 效果对比
@@ -103,6 +111,7 @@ python src/entity_centric_self_instruct.py your_KG_triples.txt your_output_file.
 - [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)
 - [Chinese-LlaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
 - [ChatMed](https://github.com/michael-wzhu/ChatMed)
+- [Qwen](https://huggingface.co/Qwen)
 
 Logo中的"神农"形象是由[midjourney](http://midjourney.com)自动生成。
 
