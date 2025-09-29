@@ -75,7 +75,7 @@ python query_crawl_tcm_KG_prompts.py
 
 
 ## 效果对比
-# 我们以ShenNong-L为例：
+### 我们以ShenNong-L为例：
 通过使用[中医药指令数据集SN-QA](https://huggingface.co/datasets/michaelwzhu/ShenNong_TCM_Dataset)对中文LlaMA-7b模型进行LoRA微调，可使得该模型在回复中医药相关问题方面获得明显的提升。这里我们展示了5个典型中医药问题下不同模型的回复。更多测试样例见[更多测试样例](./src/ShenNong-TCM-LLM - test examples.xls)
 
 
